@@ -252,13 +252,13 @@ function App() {
 
   let [total, setTotal] = useState(0);
 
-  function updateCart(data){
+  function updateCart(data) {
     setCart([...cart, data]);
     setTotal(total + data.price)
   }
 
 
-  function removeCart(item){
+  function removeCart(item) {
     let itemIndex = cart.findIndex(obj => obj.id === item.id);
 
     cart.splice(itemIndex, 1);
@@ -269,7 +269,7 @@ function App() {
 
 
   return (
-    <div className='flex gap-5 bg-gray-100 min-h-screen p-10'>
+    <div className='flex gap-5 bg-gray-100 min-h-screen p-10 order-2 md:order-1'>
 
       <div className='flex gap-4 flex-wrap w-[70%]'>
 
@@ -281,32 +281,32 @@ function App() {
 
       </div>
 
-      <div className="flex flex-col w-[30%]">
+      <div className="flex flex-col w-full md:w-[30%] order-1 md:order-2">
 
         <h2 className="font-bold text-gray-600 text-2xl">Cart</h2>
 
         {
           cart.length > 0 ? (
 
-          cart.map((item, index) => {
+            cart.map((item, index) => {
 
-            return <div className="flex items-center bg-white shadow p-4 rounded-lg h-24 mt-2">
-              <div className="text-xl font-bold text-gray-600 mr-4 w-8 text-center">{index + 1}.</div>
+              return <div className="flex items-center bg-white shadow p-4 rounded-lg h-24 mt-2">
+                <div className="text-xl font-bold text-gray-600 mr-4 w-8 text-center">{index + 1}.</div>
 
-              <div className="flex-grow">
-                <p className="text-lg font-semibold text-gray-600">{item.title.slice(0, 25)}...</p>
-                <p className="text-sm text-green-600">₹{item.price}</p>
+                <div className="flex-grow">
+                  <p className="text-lg font-semibold text-gray-600">{item.title.slice(0, 25)}...</p>
+                  <p className="text-sm text-green-600">₹{item.price}</p>
+                </div>
+
+                <button onClick={() => removeCart(item)} className="text-gray-400 hover:text-red-600 text-xl font-bold ml-4">&times;</button>
               </div>
 
-              <button onClick={() => removeCart(item)} className="text-gray-400 hover:text-red-600 text-xl font-bold ml-4">&times;</button>
-            </div>
-            
-          })
+            })
 
-        ) : (
-          <p className="text-gray-500 text-lg mt-5">Your cart is empty</p>
-        ) 
-}
+          ) : (
+            <p className="text-gray-500 text-lg mt-5">Your cart is empty</p>
+          )
+        }
 
         <h2 className="font-bold text-gray-600 text-2xl mt-5">Total - ₹{total.toFixed(2)}</h2>
 
