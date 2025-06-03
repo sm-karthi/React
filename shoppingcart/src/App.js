@@ -269,7 +269,7 @@ function App() {
 
 
   return (
-    <div className='flex gap-5 bg-gray-100 min-h-screen p-10 order-2 md:order-1'>
+    <div className='flex gap-5 bg-gray-100 min-h-screen p-10'>
 
       <div className='flex gap-4 flex-wrap w-[70%]'>
 
@@ -281,7 +281,7 @@ function App() {
 
       </div>
 
-      <div className="flex flex-col w-full md:w-[30%] order-1 md:order-2">
+      <div className="flex flex-col w-full md:w-[30%] fixed right-8 z-50">
 
         <h2 className="font-bold text-gray-600 text-2xl">Cart</h2>
 
