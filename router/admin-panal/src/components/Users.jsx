@@ -12,7 +12,7 @@ function Users() {
   return (
     <div className="flex flex-col space-y-8 justify-center items-center h-screen bg-gray-100">
         
-        <button className='bg-green-500 text-white px-2 py-1 rounded font-semibold hover:bg-green-600 transition duration-150 cursor-pointer shadow-md'><Link to={"/create-user"}>Create User</Link></button>
+        <Link to={"/create-user"} className='bg-green-500 text-white px-2 py-1 rounded font-semibold hover:bg-green-600 transition duration-150 cursor-pointer shadow'>Create User</Link>
 
       <div className="w-full max-w-4xl bg-white p-6 rounded-lg shadow-lg">
         <h2 className="text-2xl font-bold mb-6 text-center">Users</h2>
@@ -32,6 +32,9 @@ function Users() {
                 <td className="border border-gray-300 px-4 py-2">{user.age}</td>
                 <td className="border border-gray-300 px-4 py-2">{user.city}</td>
                 <td className="border border-gray-300 px-4 py-2 space-x-2">
+
+                    <Link to={`/view/${user.id}`} className='bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600'>View</Link>
+
                   <button className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">
                     Edit
                   </button>

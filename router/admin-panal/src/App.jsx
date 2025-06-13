@@ -6,6 +6,7 @@ import Users from './components/Users';
 import Dashboard from './components/Dashboard';
 import Products from './components/Products';
 import UserForm from './components/UserForm';
+import UserView from './components/UserView';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
               <Route path="/" element={<Dashboard/>} />
               <Route path='/products' element={<Products/>} />
               <Route path='/create-user' element={<UserForm/>} />
+              <Route path='/view/:id' element={<UserView/>} />
             </Routes>
           </div>
         </div>
