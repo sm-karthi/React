@@ -10,13 +10,13 @@ const product = {
 function ProductCard({ product }) {
     return (
         <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm">
-            <a href="#">
-                <img className="p-8 rounded-t-lg" src={product.image} alt="product" />
-            </a>
+
+            <img className="p-8 rounded-t-lg" src={product.image} alt="product" />
+
             <div className="px-5 pb-5">
-                <a href="#">
+                
                     <h5 className="text-xl font-semibold tracking-tight text-gray-900">{product.title}</h5>
-                </a>
+                
                 <div className="flex items-center mt-2.5 mb-5">
                     <div className="flex items-center space-x-1">
                         {[1, 2, 3, 4, 5].map((star, index) => (
