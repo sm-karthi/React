@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import userContext from '../context/UserContext';
 
 function Dashboard() {
+
+  let userData = useContext(userContext)
   return (
     <div className="p-6">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
@@ -11,7 +14,7 @@ function Dashboard() {
               <div className="flex items-center mb-1">
                 <div className="text-2xl font-semibold">2</div>
               </div>
-              <div className="text-sm font-medium text-gray-400">Users</div>
+              <div className="text-sm font-medium text-gray-400">{userData.userName}</div>
             </div>
             <div className="dropdown">
               <button type="button" className="dropdown-toggle text-gray-400 hover:text-gray-600">⋮</button>
@@ -59,7 +62,8 @@ function Dashboard() {
           <div className="rounded-t mb-0 px-0 border-0">
             <div className="flex flex-wrap items-center px-4 py-2">
               <div className="relative w-full max-w-full flex-grow flex-1">
-                <h3 className="font-semibold text-base text-gray-900 dark:text-gray-50">Users</h3>
+                <h3 className="font-semibold text-base text-gray-900 dark:text-gray-50">
+                  Users - {userData.userName}</h3>
               </div>
             </div>
             <div className="block w-full overflow-x-auto">
@@ -137,7 +141,13 @@ function Dashboard() {
             </div>
           </div>
         </div>
+
+        <button className='bg-blue-500 w-fit h-fit text-white py-1 px-3 rounded shadow-md 
+        cursor-pointer hover:bg-blue-700 duration-150 font-semibold'
+          onClick={() => userData.setUsername("Arun")}>Change</button>
       </div>
+
+
     </div>
   );
 }

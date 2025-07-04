@@ -7,31 +7,38 @@ import Dashboard from './components/Dashboard';
 import Products from './components/Products';
 import UserForm from './components/UserForm';
 import UserView from './components/UserView';
+import { UserProvider } from './context/UserContext';
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="h-screen w-screen flex overflow-hidden">
 
-        <Sidebar />
+      <UserProvider>
 
+        <div className="h-screen w-screen flex overflow-hidden">
 
-        <div className="flex flex-col flex-1 overflow-hidden">
-
-          <Navbar />
+          <Sidebar />
 
 
-          <div className="flex-1 overflow-auto bg-gray-50">
-            <Routes>
-              <Route path="/users" element={<Users />} />
-              <Route path="/" element={<Dashboard/>} />
-              <Route path='/products' element={<Products/>} />
-              <Route path='/create-user' element={<UserForm/>} />
-              <Route path='/view/:id' element={<UserView/>} />
-            </Routes>
+          <div className="flex flex-col flex-1 overflow-hidden">
+
+            <Navbar />
+
+
+            <div className="flex-1 overflow-auto bg-gray-50">
+              <Routes>
+                <Route path="/users" element={<Users />} />
+                <Route path="/" element={<Dashboard />} />
+                <Route path='/products' element={<Products />} />
+                <Route path='/create-user' element={<UserForm />} />
+                <Route path='/view/:id' element={<UserView />} />
+              </Routes>
+            </div>
           </div>
         </div>
-      </div>
+
+      </UserProvider>
+      
     </BrowserRouter>
   );
 }

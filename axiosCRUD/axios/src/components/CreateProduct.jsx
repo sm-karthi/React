@@ -14,6 +14,12 @@ function CreateProduct() {
             category: "",
             description: "",
             thumbnailURL: "",
+            rows: [
+                {
+                    key: "",
+                    value: ""
+                }
+            ]
         },
         validate: (values) => {
             let error = {};
@@ -61,9 +67,9 @@ function CreateProduct() {
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                         className="w-full border px-3 py-2 rounded" />
-                    {formik.touched.title && formik.errors.title && (
-                        <span className="text-red-500">{formik.errors.title}</span>
-                    )}
+                    {formik.touched.title ?
+                        <span className="text-red-500">{formik.errors.title}</span> : null
+                    }
                 </div>
 
                 <div>
@@ -75,9 +81,9 @@ function CreateProduct() {
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                         className="w-full border px-3 py-2 rounded" />
-                    {formik.touched.category && formik.errors.category && (
-                        <span className="text-red-500">{formik.errors.category}</span>
-                    )}
+                    {formik.touched.category ?
+                        <span className="text-red-500">{formik.errors.category}</span> : null
+                    }
                 </div>
 
                 <div>
@@ -88,9 +94,9 @@ function CreateProduct() {
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                         className="w-full border px-3 py-2 rounded h-24" />
-                    {formik.touched.description && formik.errors.description && (
-                        <span className="text-red-500">{formik.errors.description}</span>
-                    )}
+                    {formik.touched.description ?
+                        <span className="text-red-500">{formik.errors.description}</span> : null
+                    }
                 </div>
 
                 <div>
@@ -102,14 +108,15 @@ function CreateProduct() {
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                         className="w-full border px-3 py-2 rounded" />
-                    {formik.touched.thumbnailURL && formik.errors.thumbnailURL && (
-                        <span className="text-red-500">{formik.errors.thumbnailURL}</span>
-                    )}
+                    {formik.touched.thumbnailURL ?
+                        <span className="text-red-500">{formik.errors.thumbnailURL}</span> : null
+                    }
                 </div>
 
                 <button type="submit" className="bg-blue-600 text-white px-4 py-2 cursor-pointer rounded hover:bg-blue-700">
                     Submit
                 </button>
+
             </form>
         </div>
     );

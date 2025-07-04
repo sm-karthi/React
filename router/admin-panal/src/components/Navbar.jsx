@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import UserContext from '../context/UserContext';
 
 function Navbar() {
+
+    let userData = useContext(UserContext);
+    
     return (
         <header className="border-b border-gray-300 bg-white px-6 py-4 tracking-wide relative z-50 shadow-md">
             <div className="flex items-center justify-between">
@@ -23,6 +27,11 @@ function Navbar() {
                         <input type="text" placeholder="Search..." className="w-full outline-none bg-transparent text-slate-900 text-sm" />
                     </div>
                 </div>
+
+
+                {userData.userName}
+
+
 
                 {/* Right Side Icons */}
                 <div className="flex items-center space-x-6">
